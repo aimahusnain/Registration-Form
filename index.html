@@ -6,182 +6,275 @@
     <title>Registration</title>
   </head>
   <style>
-    body {
-      background-color: #4070f4;
-    }
-
-    #Content-Container {
-      background-color: white;
-      margin: 100px;
-      border-radius: 10px;
-      padding: 1px 0px 0px 30px;
-    }
-
-    .Registration {
-      text-decoration: underline #4070f4;
-    }
-
-    .subtitle {
-      color: black;
-      opacity: 50%;
-    }
-
-    label {
-      line-height: 2;
-    }
-
-    ::placeholder {
-      font-size: medium;
-    }
-
     * {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .date-styling {
-      font-size: 17px;
-      color: #333;
+    body {
+      min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4070f4;
     }
 
-    .Input div {
-      float: left;
-      margin-right: 50px;
-    }
+    .container{
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
 
-    .textstyle-of-input {
-      font-weight: 500;
-    }
 
-    input {
-      border-radius: 5px;
-      border: 2px solid rgb(196, 196, 196);
-      width: 260px;
-      height: 45px;
-      padding-left: 10px;
-      padding-right: 10px;
-      color: black;
-    }
+.container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
 
-    .Input {
-      display: inline-block;
-      margin-bottom: 15px;
-    }
+.container header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+}
 
-    select {
-      border: 2px solid rgb(196, 196, 196);
-      width: 285px;
-      height: 50px;
-      padding-left: 10px;
-      padding-right: 10px;
-      border-radius: 5px;
-    }
+.container form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 490px;
+    background-color: #fff;
+    overflow: hidden;
+}
 
-    button {
-      align-items: center;
-      justify-content: center;
-      height: 45px;
-      max-width: 200px;
-      width: 100%;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      margin: 25px 0;
-      background-color: #4070f4;
-      cursor: pointer;
-      font-size: large;
-      font-weight: bold;
+.container form .form{
+    position: absolute;
+    background-color: #fff;
+    transition: 0.3s ease;
+}
+.container form .form.second{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+}
+form.secActive .form.second{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+form.secActive .form.first{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+}
+.container form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+.container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+form .fields .input-field{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+.input-field label{
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.input-field input, select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+.input-field input :focus,
+.input-field select:focus{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.input-field select,
+.input-field input[type="date"]{
+    color: #707070;
+}
+.input-field input[type="date"]:valid{
+    color: #333;
+}
+.container form button, .backBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #4070f4;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.container form .btnText{
+    font-size: 14px;
+    font-weight: 400;
+}
+form button:hover{
+    background-color: #265df2;
+}
+form button i,
+form .backBtn i{
+    margin: 0 6px;
+}
+form .backBtn i{
+    transform: rotate(180deg);
+}
+form .buttons{
+    display: flex;
+    align-items: center;
+}
+form .buttons button , .backBtn{
+    margin-right: 14px;
+}
+
+@media (max-width: 750px) {
+    .container form{
+        overflow-y: scroll; 
     }
+    .container form::-webkit-scrollbar{
+       display: none;
+    }
+    form .fields .input-field{
+        width: calc(100% / 2 - 15px);
+    }
+}
+
+@media (max-width: 550px) {
+    form .fields .input-field{
+        width: 100%;
+    }
+}
+
     
   </style>
   <body>
-    <div id="Content-Container">
-      <h1><span class="Registration">Re</span>gistration</h1>
+    <div class="container">
+        <header>Registration</header>
 
-      <h3 class="subtitle">Personal Details</h3>
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
 
-      <div class="Input">
-        <div>
-          <label class="textstyle-of-input">Full Name</label><br />
-          <input type="text" placeholder="Enter your Name" required />
-        </div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
 
-        <div class="input-field">
-          <label class="textstyle-of-input">Date of Birth</label><br />
-          <input class="date-styling" type="date" required />
-        </div>
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Enter birth date" required>
+                        </div>
 
-        <div>
-          <label class="textstyle-of-input">Email</label><br />
-          <input type="email" placeholder="Enter your Email" required />
-        </div>
-      </div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="text" placeholder="Enter your email" required>
+                        </div>
 
-      <div class="Input">
-        <div>
-          <label class="textstyle-of-input">Mobile Number</label><br />
-          <input type="text" placeholder="Enter mobile number" />
-        </div>
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" placeholder="Enter mobile number" required>
+                        </div>
 
-        <div>
-          <label class="textstyle-of-input">Gender</label><br />
-          <select required>
-            <option disabled selected>Select gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-        </div>
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
 
-        <div>
-          <label class="textstyle-of-input">Occupation</label><br />
-          <input type="text" placeholder="Enter occupation" required />
-        </div>
-      </div>
+                        <div class="input-field">
+                            <label>Occupation</label>
+                            <input type="text" placeholder="Enter your ccupation" required>
+                        </div>
+                    </div>
+                </div>
 
-      <h3 class="subtitle">Identity Details</h3>
+                <div class="details ID">
+                    <span class="title">Identity Details</span>
 
-      <div class="Input">
-        <div>
-          <label class="textstyle-of-input">ID Type</label><br />
-          <input type="text" placeholder="Enter Id type" required />
-        </div>
-        <div>
-          <label class="textstyle-of-input">ID Number</label><br />
-          <input type="text" placeholder="Enter Id number" required />
-        </div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>ID Type</label>
+                            <input type="text" placeholder="Enter ID type" required>
+                        </div>
 
-        <div>
-          <label class="textstyle-of-input"> Issue Authority</label><br />
-          <input type="text" placeholder="Enter issue department" required />
-        </div>
-      </div>
+                        <div class="input-field">
+                            <label>ID Number</label>
+                            <input type="number" placeholder="Enter ID number" required>
+                        </div>
 
-      <div class="Input">
-        <div>
-          <label>Issue Date</label><br />
-          <input
-            class="date-styling"
-            type="date"
-            placeholder="Enter ID issue date"
-          />
-        </div>
+                        <div class="input-field">
+                            <label>Issued Authority</label>
+                            <input type="text" placeholder="Enter issued authority" required>
+                        </div>
 
-        <div>
-          <label>Issue State</label><br />
-          <input type="text" placeholder="Enter ID issue state" />
-        </div>
+                        <div class="input-field">
+                            <label>Issued State</label>
+                            <input type="text" placeholder="Enter issued state" required>
+                        </div>
 
-        <div>
-          <label>Expiry Date</label><br />
-          <input
-            class="date-styling"
-            type="date"
-            placeholder="Enter ID expiry date"
-          />
-        </div>
-      </div>
+                        <div class="input-field">
+                            <label>Issued Date</label>
+                            <input type="date" placeholder="Enter your issued date" required>
+                        </div>
 
-      <button>Next <span class="arrow">&rAarr;</span></button>  
+                        <div class="input-field">
+                            <label>Expiry Date</label>
+                            <input type="date" placeholder="Enter expiry date" required>
+                        </div>
+                    </div>
+
+                    <button class="nextBtn">
+                        <span class="btnText">Next</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div> 
+            </div>
+        </form>
     </div>
-  </body>
+</body>
 </html>
+
+

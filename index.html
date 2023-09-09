@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+  </head>
+  <style>
+    body {
+      background-color: #4070f4;
+    }
+
+    #Content-Container {
+      background-color: white;
+      margin: 100px;
+      border-radius: 10px;
+      padding: 1px 0px 0px 30px;
+    }
+
+    .Registration {
+      text-decoration: underline #4070f4;
+    }
+
+    .subtitle {
+      color: black;
+      opacity: 50%;
+    }
+
+    label {
+      line-height: 2;
+    }
+
+    ::placeholder {
+      font-size: medium;
+    }
+
+    * {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .date-styling {
+      font-size: 17px;
+      color: #333;
+    }
+
+    .Input div {
+      float: left;
+      margin-right: 50px;
+    }
+
+    .textstyle-of-input {
+      font-weight: 500;
+    }
+
+    input {
+      border-radius: 5px;
+      border: 2px solid rgb(196, 196, 196);
+      width: 260px;
+      height: 45px;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: black;
+    }
+
+    .Input {
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    select {
+      border: 2px solid rgb(196, 196, 196);
+      width: 285px;
+      height: 50px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+    }
+
+    button {
+      align-items: center;
+      justify-content: center;
+      height: 45px;
+      max-width: 200px;
+      width: 100%;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin: 25px 0;
+      background-color: #4070f4;
+      cursor: pointer;
+      font-size: large;
+      font-weight: bold;
+    }
+    
+  </style>
+  <body>
+    <div id="Content-Container">
+      <h1><span class="Registration">Re</span>gistration</h1>
+
+      <h3 class="subtitle">Personal Details</h3>
+
+      <div class="Input">
+        <div>
+          <label class="textstyle-of-input">Full Name</label><br />
+          <input type="text" placeholder="Enter your Name" required />
+        </div>
+
+        <div class="input-field">
+          <label class="textstyle-of-input">Date of Birth</label><br />
+          <input class="date-styling" type="date" required />
+        </div>
+
+        <div>
+          <label class="textstyle-of-input">Email</label><br />
+          <input type="email" placeholder="Enter your Email" required />
+        </div>
+      </div>
+
+      <div class="Input">
+        <div>
+          <label class="textstyle-of-input">Mobile Number</label><br />
+          <input type="text" placeholder="Enter mobile number" />
+        </div>
+
+        <div>
+          <label class="textstyle-of-input">Gender</label><br />
+          <select required>
+            <option disabled selected>Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="textstyle-of-input">Occupation</label><br />
+          <input type="text" placeholder="Enter occupation" required />
+        </div>
+      </div>
+
+      <h3 class="subtitle">Identity Details</h3>
+
+      <div class="Input">
+        <div>
+          <label class="textstyle-of-input">ID Type</label><br />
+          <input type="text" placeholder="Enter Id type" required />
+        </div>
+        <div>
+          <label class="textstyle-of-input">ID Number</label><br />
+          <input type="text" placeholder="Enter Id number" required />
+        </div>
+
+        <div>
+          <label class="textstyle-of-input"> Issue Authority</label><br />
+          <input type="text" placeholder="Enter issue department" required />
+        </div>
+      </div>
+
+      <div class="Input">
+        <div>
+          <label>Issue Date</label><br />
+          <input
+            class="date-styling"
+            type="date"
+            placeholder="Enter ID issue date"
+          />
+        </div>
+
+        <div>
+          <label>Issue State</label><br />
+          <input type="text" placeholder="Enter ID issue state" />
+        </div>
+
+        <div>
+          <label>Expiry Date</label><br />
+          <input
+            class="date-styling"
+            type="date"
+            placeholder="Enter ID expiry date"
+          />
+        </div>
+      </div>
+
+      <button>Next <span class="arrow">&rAarr;</span></button>  
+    </div>
+  </body>
+</html>
